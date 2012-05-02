@@ -50,11 +50,11 @@ echo "made dir "
 # Get libjpeg
 PHP_URL="http://projects.interlated.com.au/libjpeg.so"
 echo "-----> downloading libjpeg"
-curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/
+curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/libjpeg.so
 
 PHP_URL="http://projects.interlated.com.au/libjpeg.so.62"
 echo "-----> Downloading libjpeg"
-curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/
+curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/libjpeg.so.62
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
