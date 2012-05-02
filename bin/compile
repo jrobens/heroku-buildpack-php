@@ -48,7 +48,7 @@ echo $?
 echo "made dir "
 
 # Get libjpeg
-PHP_URL="http://projects.interlated.com.au/libjpeg.so"
+PHP_URL="http://projects.interlated.com.au/libjpeg.so.62.0.0"
 echo "-----> downloading libjpeg"
 curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/libjpeg.so.62.0.0
 
