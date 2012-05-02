@@ -54,9 +54,10 @@ curl --silent --max-time 60 --location "$PHPSO_URL" -o $PHPSO
 ls -l $PHPSO
 id
 
-mkdir $PHP_PATH/ext
-echo $?
-echo "made dir "
+EXTDIR=$PHP_PATH/ext
+[ -d $EXTDIR ] || mkdir -p $EXTDIR
+ln -s /lib/libcrypto.so.0.9.8 $EXTDIR/libcrypto.so.6
+ln -s /lib/libssl.so.0.9.8 $EXTDIR/libssl.so.6
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
