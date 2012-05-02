@@ -43,8 +43,15 @@ PHP_URL="http://projects.interlated.com.au/php.tgz"
 echo "-----> Bundling PHP version $PHP_VERSION"
 curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
-pwd
-ls -l
+PHPSO=apache/modules/libphp5.so
+if [ -f $PHPSO ]; then
+  echo "Removing $PHPSO"
+  rm "$PHPSO"
+fi
+PHPSO_URL="http://projects.interlated.com.au/libphp5.so"
+echo "-----> Copying
+curl --silent --max-time 60 --location "$PHPSO_URL" -o $PHPSO
+ls -l $PHPSO
 id
 
 mkdir $PHP_PATH/ext
@@ -59,12 +66,6 @@ cp $LP_DIR/conf/php.ini php
 mkdir -p bin
 ln -s /app/php/bin/php bin/php
 
-pwd
-PHPSO=apache/modules/libphp5.so
-if [ -f $PHPSO ]; then
-  echo "Removing $PHPSO"
-  rm "$PHPSO"
-fi
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
