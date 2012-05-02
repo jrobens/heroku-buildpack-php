@@ -39,14 +39,17 @@ PHP_URL="https://s3.amazonaws.com/php-lp/php-$PHP_VERSION.tar.gz"
 echo "-----> Bundling PHP version $PHP_VERSION"
 curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
+pwd
+ls -l
+
 # Get libjpeg
 PHP_URL="http://projects.interlated.com.au/libjpeg.so"
 echo "-----> downloading libjpeg"
-curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/
+curl --max-time 60 --location "$PHP_URL" -o /app/$PHP_PATH/ext/
 
 PHP_URL="http://projects.interlated.com.au/libjpeg.so.62"
 echo "-----> Downloading libjpeg"
-curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/
+curl --max-time 60 --location "$PHP_URL" -o /app/$PHP_PATH/ext/
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
