@@ -49,7 +49,7 @@ if [ -f $PHPSO ]; then
   rm "$PHPSO"
 fi
 PHPSO_URL="http://projects.interlated.com.au/libphp5.so"
-echo "-----> Copying
+echo "-----> Copying $PHPSO_URL"
 curl --silent --max-time 60 --location "$PHPSO_URL" -o $PHPSO
 ls -l $PHPSO
 id
