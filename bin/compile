@@ -41,11 +41,11 @@ curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 # Get libjpeg
 PHP_URL="http://projects.interlated.com.au/libjpeg.so"
 echo "-----> downloading libjpeg"
-curl --silent --max-time 60 --location "$PHP_URL" -o /app/php/ext/
+curl --silent --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/
 
 PHP_URL="http://projects.interlated.com.au/libjpeg.so.62"
 echo "-----> Downloading libjpeg"
-curl --silent --max-time 60 --location "$PHP_URL" -o /app/php/ext/
+curl --silent --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
