@@ -43,6 +43,10 @@ pwd
 ls -l
 id
 
+mkdir $PHP_PATH/ext
+echo $?
+echo "made dir "
+
 # Get libjpeg
 PHP_URL="http://projects.interlated.com.au/libjpeg.so"
 echo "-----> downloading libjpeg"
