@@ -5,9 +5,6 @@
 #set -e
 set -x
 
-apt-get install mcrypt
-apt-get install mcrypt-dev
-apt-get install php5-mcrypt
 
 # config
 APACHE_VERSION="2.2.22"
@@ -39,7 +36,7 @@ APACHE_URL="https://s3.amazonaws.com/php-lp/apache-$APACHE_VERSION.tar.gz"
 echo "-----> Bundling Apache version $APACHE_VERSION"
 curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
 
-S3_BUCKET=heroku-buildpack-wordpress
+#S3_BUCKET=heroku-buildpack-wordpress
 #PHP_URL="https://s3.amazonaws.com/php-lp/php-$PHP_VERSION.tar.gz"
 PHP_URL="http://projects.interlated.com.au/php.tgz"
 #PHP_URL="https://s3.amazonaws.com/${S3_BUCKET}/php-${PHP_VERSION}-with-fpm-heroku.tar.gz"
@@ -53,15 +50,6 @@ id
 mkdir $PHP_PATH/ext
 echo $?
 echo "made dir "
-
-# Get libjpeg
-PHP_URL="http://projects.interlated.com.au/libjpeg.so.62.0.0"
-echo "-----> downloading libjpeg"
-curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/libjpeg.so.62.0.0
-
-PHP_URL="http://projects.interlated.com.au/libjpeg.so.62"
-echo "-----> Downloading libjpeg"
-curl --max-time 60 --location "$PHP_URL" -o $PHP_PATH/ext/libjpeg.so.62
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
