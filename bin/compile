@@ -5,6 +5,10 @@
 #set -e
 set -x
 
+apt-get install mcrypt
+apt-get install mcrypt-dev
+apt-get install php5-mcrypt
+
 # config
 APACHE_VERSION="2.2.22"
 APACHE_PATH="apache"
@@ -37,8 +41,8 @@ curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
 
 S3_BUCKET=heroku-buildpack-wordpress
 #PHP_URL="https://s3.amazonaws.com/php-lp/php-$PHP_VERSION.tar.gz"
-#PHP_URL="http://projects.interlated.com.au/php.tgz"
-PHP_URL="https://s3.amazonaws.com/${S3_BUCKET}/php-${PHP_VERSION}-with-fpm-heroku.tar.gz"
+PHP_URL="http://projects.interlated.com.au/php.tgz"
+#PHP_URL="https://s3.amazonaws.com/${S3_BUCKET}/php-${PHP_VERSION}-with-fpm-heroku.tar.gz"
 echo "-----> Bundling PHP version $PHP_VERSION"
 curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
