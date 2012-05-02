@@ -2,7 +2,8 @@
 # bin/compile <build-dir> <cache-dir>
 
 # fail fast
-set -e
+#set -e
+set -x
 
 # config
 APACHE_VERSION="2.2.22"
